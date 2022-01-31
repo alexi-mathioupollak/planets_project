@@ -9,8 +9,12 @@ module.exports = {
         modules: './assets/js/modules.js',
     },
     performance: {
-      maxAssetSize: 50000,
-      maxEntrypointSize: 50000,
+      maxAssetSize: 512000,
+      maxEntrypointSize: 512000,
+      hints: false,
+      assetFilter: function(assetFilename) {
+        return !assetFilename.endsWith('.jpg');
+      },
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
